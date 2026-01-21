@@ -1,0 +1,175 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Pacifico&display=swap");
+
+body {
+  margin: 0;
+  overflow: hidden; /* Oculta barras de desplazamiento */
+  background-color: #0a0a0a; /* Fondo muy oscuro */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  font-family: "Montserrat", sans-serif;
+  color: #fff;
+  position: relative;
+}
+
+/* Estrellas de fondo */
+.stars,
+.twinkling {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.stars {
+  background: #000
+    url("https://www.transparenttextures.com/patterns/stardust.png") repeat top
+    center;
+  z-index: 0;
+}
+
+.twinkling {
+  background: transparent
+    url("https://www.transparenttextures.com/patterns/stardust.png") repeat top
+    center;
+  z-index: 1;
+  -moz-animation: move-twink-back 200s linear infinite;
+  -webkit-animation: move-twink-back 200s linear infinite;
+  -o-animation: move-twink-back 200s linear infinite;
+  animation: move-twink-back 200s linear infinite;
+}
+
+@-moz-keyframes move-twink-back {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: -10000px 5000px;
+  }
+}
+
+@-webkit-keyframes move-twink-back {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: -10000px 5000px;
+  }
+}
+
+@-o-keyframes move-twink-back {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: -10000px 5000px;
+  }
+}
+
+@keyframes move-twink-back {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: -10000px 5000px;
+  }
+}
+
+/* Contenedor del mensaje */
+.message-container {
+  text-align: center;
+  z-index: 10;
+  background: rgba(0, 0, 0, 0.6); /* Fondo semi-transparente para el texto */
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0 0 30px rgba(255, 105, 180, 0.7); /* Sombra rosada brillante */
+  max-width: 800px;
+  margin: 20px;
+}
+
+h1 {
+  font-family: "Pacifico", cursive; /* Fuente más elegante para el título */
+  font-size: 4em;
+  color: #ff69b4; /* Rosa fuerte */
+  margin-bottom: 20px;
+  text-shadow:
+    0 0 15px #ff69b4,
+    0 0 30px #ffc0cb; /* Efecto neón rosado */
+  opacity: 0; /* Inicialmente oculto para la animación */
+  animation: fadeIn 2s forwards;
+  animation-delay: 0s;
+}
+
+p {
+  font-size: 1.8em;
+  margin: 15px 0;
+  min-height: 1.2em; /* Para que no salte el layout */
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 0.15em solid orange; /* Cursor de máquina de escribir */
+  animation:
+    typing 3.5s steps(40, end),
+    blink-caret 0.75s step-end infinite;
+  animation-fill-mode: forwards;
+  opacity: 0; /* Inicialmente oculto para la animación */
+  color: #e0bbe4; /* Lila suave */
+  text-shadow: 0 0 8px rgba(224, 187, 228, 0.7); /* Sombra suave para el texto */
+}
+
+p:nth-of-type(1) {
+  animation-delay: 2s;
+}
+p:nth-of-type(2) {
+  animation-delay: 5.5s;
+}
+p:nth-of-type(3) {
+  animation-delay: 9s;
+}
+
+p.final-note {
+  font-family: "Pacifico", cursive;
+  font-size: 1.5em;
+  margin-top: 40px;
+  color: #ffd1dc; /* Rosa claro */
+  opacity: 0;
+  animation: fadeIn 2s forwards;
+  animation-delay: 12.5s;
+  border-right: none; /* Sin cursor para la nota final */
+  white-space: normal;
+}
+
+/* Animación de fade in */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Animación de máquina de escribir */
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+/* Animación del cursor */
+@keyframes blink-caret {
+  from,
+  to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: orange;
+  }
+}
